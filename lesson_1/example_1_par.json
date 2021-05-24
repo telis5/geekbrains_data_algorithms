@@ -1,0 +1,35 @@
+{
+    "dataset": {
+        "n_samples": 100,
+        "n_features": 100,
+        "n_informative": 10,
+        "n_targets": 1,
+        "bias": 0,
+        "tail_strength": 0.5,
+        "noise": 0,
+        "shuffle": true,
+        
+        "coef": false,
+        "random_state": 42
+    },
+    
+    "regressor_fit": {
+        "step_size": {
+            "start": 0.01,
+            "stop": 0.31,
+            "step": 0.01
+        },
+        "residual_min": {
+            "start": -6,
+            "stop": -1,
+            "num": 6,
+            "endpoint": true,
+            "base": 10
+        },
+        "residual_max": 1e6,
+        "iteration_max": 1e6,
+        "print_frequency": 1000,
+        "log_name": "example_1_log_{:02d}.csv",
+        "write_frequency": 1
+    }    
+}
