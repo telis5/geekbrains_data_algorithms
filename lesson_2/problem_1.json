@@ -1,0 +1,25 @@
+{
+    "dataset": {
+        "n_samples": 100,
+        "n_features": 10,
+        "n_informative": 10,
+        "n_targets": 1,
+        "bias": 0,
+        "tail_strength": 0.5,
+        "noise": 10,
+        "shuffle": true,
+        "coef": false,
+        "random_state": 42
+    },
+    "model": {
+        "s": 0.01,
+        "r_min": 1e-6,
+        "r_max": 1e6,
+        "i_max": 1e4
+    },
+    "convergence": {
+        "iteration": 0, 
+        "residual": 1,
+        "error": 2
+    } 
+}
