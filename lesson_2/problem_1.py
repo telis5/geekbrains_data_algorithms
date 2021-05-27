@@ -1,5 +1,7 @@
 from gradient_descent import GradientDescent
 from stochastic_gradient_descent import StochasticGradientDescent
+from ridge_gradient_descent import RidgeGradientDescent
+from lasso_gradient_descent import LassoGradientDescent
 
 
 def prepare(
@@ -21,6 +23,20 @@ class GradientDescent1(GradientDescent):
 
 
 class StochasticGradientDescent1(StochasticGradientDescent):
+    def _prepare(self, *args, **kwargs):
+        return prepare(self, *args, **kwargs)
+
+    _save = staticmethod(save)
+
+
+class RidgeGradientDescent1(RidgeGradientDescent):
+    def _prepare(self, *args, **kwargs):
+        return prepare(self, *args, **kwargs)
+
+    _save = staticmethod(save)
+
+
+class LassoGradientDescent1(LassoGradientDescent):
     def _prepare(self, *args, **kwargs):
         return prepare(self, *args, **kwargs)
 

@@ -8,14 +8,17 @@ class GradientDescent(LinearRegression):
         return np.zeros(shape=X.shape[1])
 
     @staticmethod
-    def _loss_gradient(X: np.array, y: np.array, w: np.array) -> np.array:
+    def _quality_gradient(X: np.array, y: np.array, w: np.array) -> np.array:
         return 2 * np.dot(X.transpose(), X.dot(w) - y) / X.shape[0]
 
     @classmethod
     def _iterate(
         cls, X: np.array, y: np.array, w: np.array, s: float
-    ) -> tuple:
-        return w - s * cls._loss_gradient(X, y, w)
+    ) -> np.array:
+        return w - s * cls._quality_gradient(X, y, w)
+
+    def iterate(self, X: np.array, y: np.array, s: float) -> np.array:
+        return self._iterate(X, y, self._w, s)
 
     # @classmethod
     # def _residual(cls, W: tuple[list[float], list[float]]) -> float:
@@ -62,7 +65,7 @@ class GradientDescent(LinearRegression):
             self._save(save_to, self._prepare(X_, y, i, r))
 
         while True:
-            self._w, w_ = self._iterate(X_, y, self._w, s), self._w.copy()
+            self._w, w_ = self.iterate(X_, y, s), self._w.copy()
             r = self._residual((w_, self._w))
             i += 1
 

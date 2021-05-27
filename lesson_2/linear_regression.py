@@ -4,16 +4,16 @@ from linear_model import LinearModel
 
 class LinearRegression(LinearModel):
     # @classmethod
-    # def _loss(
+    # def _quality (
     #     cls, X: list[list[float]], y: list[float], w: list[float]
     # ) -> float:
     #     return cls._mse((cls._predict(X, w), y))
 
     @staticmethod
-    def _loss(X: np.array, y: np.array, w: np.array) -> float:
+    def _quality(X: np.array, y: np.array, w: np.array) -> float:
         return sum((X.dot(w) - y)**2) / X[0].shape[0]
 
-    def loss(self, X: np.array, y: np.array) -> float:
+    def quality(self, X: np.array, y: np.array) -> float:
         return self._loss(self._extended(X), y, self._w)
 
     # @classmethod
