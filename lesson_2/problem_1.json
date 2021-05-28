@@ -11,7 +11,11 @@
         "coef": false,
         "random_state": 42
     },
-    "model": {
+    "regularization": {
+        "Ridge": 0.25,
+        "Lasso": 0.5
+    },
+    "fit": {
         "s": 0.1,
         "r_min": 1e-8,
         "r_max": 1e6,
