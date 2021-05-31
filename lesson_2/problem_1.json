@@ -12,8 +12,8 @@
         "random_state": 42
     },
     "regularization": {
-        "Ridge": 0.25,
-        "Lasso": 0.5
+        "Ridge": 0.09,
+        "Lasso": 0.3
     },
     "fit": {
         "s": 0.1,
