@@ -1,8 +1,8 @@
-from linear_model.gradient_descent import GradientDescent
+from linear.regression.descent import GradientDescent
 from .core import quality, iterate
 
 
-class LassoGradientDescent(GradientDescent):
+class RidgeGradientDescent(GradientDescent):
     def __init__(self, a: float = 1, intercept: bool = True):
         self._a = a
         self._intercept = intercept

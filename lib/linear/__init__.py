@@ -1,6 +1,5 @@
 from abc import ABC
-
-from .core import expand, predict
+from .core import expand
 
 
 class LinearModel(ABC):
@@ -18,6 +17,3 @@ class LinearModel(ABC):
 
     def _expand(self, X: list[list[float]]) -> list[list[float]]:
         return expand(X) if self._intercept else X
-
-    def predict(self, X: list[float]) -> list[float]:
-        return predict(self._expand(X), self._w)

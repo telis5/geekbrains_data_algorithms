@@ -1,4 +1,4 @@
-from linear_model.core import expand
+from linear.core import expand
 from .core import initialize, residual, stop, prepare
 from .save import save
 

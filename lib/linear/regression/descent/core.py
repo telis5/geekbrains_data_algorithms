@@ -1,10 +1,6 @@
 import numpy as np
 
 
-def quality(X: np.array, y: np.array, w: np.array) -> float:
-    return sum((X.dot(w) - y)**2) / X[0].shape[0]
-
-
 def quality_gradient(X: np.array, y: np.array, w: np.array) -> np.array:
     return 2 * np.dot(X.transpose(), X.dot(w) - y) / X.shape[0]
 
@@ -26,7 +22,7 @@ def stop(r: float, r_min: float, r_max: float, i: int, i_max: int) -> bool:
 
 
 def error(X: np.array, y: np.array, w: np.array) -> float:
-    return quality(X, y, w)
+    return sum((X.dot(w) - y)**2) / X[0].shape[0]
 
 
 def prepare(X: np.array, y: np.array, w: np.array, *args) -> tuple:
