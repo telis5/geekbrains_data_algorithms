@@ -1,21 +1,19 @@
-# import numpy as np
+import numpy as np
 
 
-# def map_to_grid(
-#     func: object, data: np.array, shape: tuple[int, int]
-# ) -> tuple[np.array, np.array]:
-#     x_min, x_max = data[:, 0].min(), data[:, 0].max()
-#     y_min, y_max = data[:, 1].min(), data[:, 1].max()
+def uniform_split(
+    data: np.array, size: tuple[int, int] = (100, 100)
+) -> np.array:
+    n_x, n_y = size
+    x_min, x_max = data[:, 0].min(), data[:, 0].max()
+    y_min, y_max = data[:, 1].min(), data[:, 1].max()
 
-#     xx, yy = np.meshgrid(
-#         np.linspace(x_min, x_max, shape[0]),
-#         np.linspace(y_min, y_max, shape[1])
-#     )
+    xx, yy = np.meshgrid(
+        np.linspace(x_min, x_max, n_x),
+        np.linspace(y_min, y_max, n_y)
+    )
 
-#     zz = func(np.c_[xx.ravel(), yy.ravel()])
-#     zz = np.array(zz).reshape(shape)
-
-#     return xx, yy, zz
+    return np.c_[xx.ravel(), yy.ravel()]
 
 
 def error_matrix(a: list, y: list) -> tuple[tuple[int, int], tuple[int, int]]:
