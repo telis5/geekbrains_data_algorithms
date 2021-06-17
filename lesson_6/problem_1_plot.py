@@ -11,7 +11,7 @@ def plot_1(
     max_depths
 ):
     dataset_labels = ['train', 'test']
-    metric_labels = ['MSE', 'MAE', 'STD', 'R2']
+    metric_labels = ['MSE', 'MAE', 'STD', r'${R}^{2}$']
 
     subplots_params = {'figsize': (8, 8)}
     axes_params = {
@@ -51,13 +51,15 @@ def plot_2(
     max_depths
 ):
     dataset_labels = ['train', 'test']
-    metric_labels = ['MSE', 'MAE', 'STD', 'R2']
+    metric_labels = ['MSE', 'MAE', 'STD', r'${R}^{2}$']
 
     subplots_params = {'figsize': (8, 8)}
     axes_params = {
         'xlabel': 'maximum depth',
-        'ylabel': metric_labels[metric_index]
+        'ylabel': metric_labels[metric_index],
+        'xticks': max_depths[depth_indexes]
     }
+    plt.fmt = 'o--'
     legend_params = {'title': 'trees: dataset'}
 
     figure, axes = plt.subplots(**subplots_params)
@@ -73,6 +75,7 @@ def plot_2(
             }
             axes.plot(
                 *plot_data,
+                plt.fmt,
                 **plot_params
             )
 

@@ -12,6 +12,8 @@ def std(a: list[float], y: list[float]) -> float:
 
 def r2(a: list[float], y: list[float]) -> float:
     y_mean = sum(y) / len(y)
-    return 1 - \
-        sum([(yi - ai) ** 2 for yi, ai in zip(y, a)]) / \
+    # return 1 - \
+    #     sum([(yi - ai) ** 2 for yi, ai in zip(y, a)]) / \
+    #     sum([(yi - y_mean) ** 2 for yi in y])
+    return sum([(ai - y_mean) ** 2 for ai in a]) / \
         sum([(yi - y_mean) ** 2 for yi in y])
